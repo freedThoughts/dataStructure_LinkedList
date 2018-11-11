@@ -274,6 +274,19 @@ public class SLLOperations implements IOperation{
 		}
 		return previousNode;
 	}
+
+	// Reverse LinkedList Recursive - pass in argument :-  head as currentNode and null as previousNode
+	@Override
+	public ListNode reverse(ListNode node, ListNode previousNode){
+		if (node.getNext() == null) {
+			node.setNext(previousNode);
+			return node;
+		}
+
+		ListNode nextNode = node.getNext();
+		node.setNext(previousNode);
+		return reverse(nextNode, node);
+	}
 	
 	// Reverse LinkedList Recursive - pass in argument :-  head as currentNode and null as previousNode
     @Override
@@ -980,15 +993,15 @@ public class SLLOperations implements IOperation{
 
 	public static void main(String arg[]){
 		SLLOperations operations = new SLLOperations();
-		ListNode head1 = operations.constructSLLandReturnHead();
+		//ListNode head1 = operations.constructSLLandReturnHead();
 		//ListNode head2 = operations.constructSLLandReturnHead2();
-		operations.printSLL(head1);
+		//operations.printSLL(head1);
 		//operations.printSLL(head2);
 		
-		System.out.println(" Break ");
+		//System.out.println(" Break ");
 		//Map map = operations.decimalEquivalentOfBinaryLinkedList(head1, null);
-		int sum = operations.decimalEquivalentOfBinaryLinkedList2(head1, 0);
-		System.out.println(sum);
+		//int sum = operations.decimalEquivalentOfBinaryLinkedList2(head1, 0);
+		//System.out.println(sum);
 		//System.out.println(map.get("Sum"));
 		//operations.printSLL(head1);
 		//operations.printSLL(head2);
@@ -998,6 +1011,11 @@ public class SLLOperations implements IOperation{
 		//operations.printSLL(head);
 		//operations.printSLL(head);
 		//reverseLinkedListRecursive3;
+
+		ListNode head = operations.constructSLLandReturnHead2();
+		operations.printSLL(head);
+		System.out.println();
+		operations.printSLL(operations.reverse(head, null));
 	}
 
 }

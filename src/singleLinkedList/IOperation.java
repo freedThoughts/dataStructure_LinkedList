@@ -17,6 +17,7 @@ public interface IOperation {
     ListNode getStartNodeOfCycleIfCyclic(ListNode head);
     ListNode insertNewNodeInSortedLL(ListNode head, ListNode newNode);
     ListNode printInReverseOrder(ListNode head);
+    ListNode reverse(ListNode node, ListNode previousNode);
     ListNode reverseLinkedList(ListNode head);
     ListNode reverseLinkedListRecursively(ListNode currentNode, ListNode previousNode);
     void reverseLinkedListRecursive(ListNode currentNode);
